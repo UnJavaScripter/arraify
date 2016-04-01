@@ -8,15 +8,35 @@
             background-color: #2196F3;
             text-align: center
         }
-
-        button{
-            margin-top: -25em;
-            vertical-align: middle;
+        section.action-button-container button{
+            border: none;
+            background: #0C69B2;
+            color: #eee;
+            padding: 1em;
+            border-radius: 0.2em;
+            cursor: pointer;
+            font-size: 2.5em;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
         }
+        section.action-button-container button:hover{
+            background: #239DFF;
+            color: #fff;
+            box-shadow: -1px 1px 2px 0 #0C69B2;
+        }
+        section.action-button-container button:active{
+            background: #0C69B2;
+            color: #ddd;
+            box-shadow: 1px -1px 2px 0 #0B68B1;
+        }
+
     </style>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/UnJavaScripter/flex-css-lib/master/dist/main.min.css">
 </head>
 <body>
-    <textarea id="input" rows="20" cols="50">
+    <main flex layout="row" layout-sm="column" align="center">
+        <section class="input-section" flex="40" align="center">
+            <textarea id="input" rows="20" cols="50">
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,12 +63,21 @@
         </p>
     </body>
 </html>
-    </textarea>
+            </textarea>
+        </section>
 
-    <button id="go">Arraify</button>
-    <textarea id="output" rows="20" cols="50"></textarea>
+        <section class="action-button-container" flex="20" align="center">
+            <button id="go">Arraify</button>
+        </section>
+
+        <section class="input-section" flex="40" align="center">
+            <textarea id="output" rows="20" cols="50"></textarea>
+        </section>
 
 
+
+    </main>
+    
 
     <script src="./app.js"></script>
     
