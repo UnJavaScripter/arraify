@@ -12,13 +12,29 @@ let arraify = () => {
         // now we get rid of the spaces
         let aLine = line.trim();
 
-        if(index !== 0 && index !== array.length -1 ){
-            // An internal/"regular" line...
-            return `\n${indentSpaces}'${aLine}'`;
+        let indentation = `\n${indentSpaces}`;
+        let lineText = `'${aLine}'`;
+        let arrayClosing = `\n].join('');`;
+
+        // An array with a single line
+        if(array.length === 1){
+            return '[' + indentation + lineText + arrayClosing;
         }else{
-            // And the initial and last lines
-            return index === 0 ? `[\n${indentSpaces}'${aLine}'` : `\n'${aLine}'\n].join('');`;
+            // Array's first line
+            if(index === 0){
+                return '[' + indentation + lineText;
+
+            // Array's regular line
+            }else if(index !== array.length -1){
+              return indentation + lineText;  
+
+            // Array's last line
+            }else{
+                return indentation + lineText + arrayClosing;
+            }
         }
+
+        
     };
     
     output.value  = inputArr.filter((elem) =>  elem.trim().length > 0 ).map(addQuotes);
